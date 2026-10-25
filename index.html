@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090817">
+  <meta name="description" content="FAMILY FOREVER — พื้นที่ของครอบครัว เพื่อน และความทรงจำดี ๆ">
+
+  <title>FAMILY FOREVER | Our Family</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090817;
+      --panel: #121126;
+      --purple: #b45cff;
+      --blue: #42e8ff;
+      --pink: #ff63d8;
+      --text: #f8f5ff;
+      --muted: #b3b0cc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 10% 20%, #7b2cff20, transparent 40%),
+        radial-gradient(ellipse at 90% 60%, #00c8ff16, transparent 40%),
+        var(--bg);
+      font-family: "Kanit", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* แถบเมนู */
+    .navbar {
+      width: min(1150px, 90%);
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: var(--blue);
+      text-shadow: 0 0 15px #42e8ff80;
+    }
+
+    .nav-label {
+      padding: 8px 13px;
+      border: 1px solid #b45cff50;
+      border-radius: 30px;
+      color: #e5d5ff;
+      font-size: 12px;
+      background: #b45cff10;
+    }
+
+    /* แบนเนอร์ด้านบน */
+    .banner {
+      position: relative;
+      width: 100%;
+      min-height: 290px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      border-top: 1px solid #b45cff30;
+      border-bottom: 1px solid #42e8ff40;
+      background:
+        radial-gradient(ellipse at 20% 50%, #b45cff4d, transparent 45%),
+        radial-gradient(ellipse at 80% 40%, #00d9ff38, transparent 45%),
+        linear-gradient(120deg, #100b2b, #11172e 50%, #0b1024);
+    }
+
+    .banner::before {
+      content: "";
+      position: absolute;
+      inset: -100%;
+      z-index: -1;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0 35%,
+        #a855f718 42%,
+        transparent 48% 65%,
+        #42e8ff18 72%,
+        transparent 80%
+      );
+      animation: rotateGlow 18s linear infinite;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .22;
+      background-image:
+        linear-gradient(#a68aff18 1px, transparent 1px),
+        linear-gradient(90deg, #a68aff18 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+
+    @keyframes rotateGlow {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .banner-content {
+      width: min(1000px, 90%);
+      padding: 55px 0;
+      text-align: center;
+    }
+
+    .banner-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 16px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #c18aff90;
+      border-radius: 20px;
+      background: #a855f71c;
+      box-shadow:
+        0 0 25px #a855f745,
+        inset 0 0 20px #42e8ff12;
+      font-size: 31px;
+    }
+
+    .banner h1 {
+      margin: 0;
+      font-size: clamp(35px, 7vw, 68px);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(95deg, #ffffff, #d9a9ff 48%, #42e8ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 24px #a855f735);
+    }
+
+    .banner-tagline {
+      margin: 15px 0 0;
+      color: #e4dafa;
+      font-size: clamp(13px, 2.5vw, 17px);
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    .banner-line {
+      width: 130px;
+      height: 2px;
+      margin: 22px auto 0;
+      background: linear-gradient(90deg, transparent, var(--purple), var(--blue), transparent);
+      box-shadow: 0 0 12px #42e8ff80;
+    }
+
+    /* เนื้อหาหลัก */
+    main {
+      width: min(850px, 90%);
+      margin: auto;
+    }
+
+    .intro {
+      padding: 65px 0 55px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 4px;
+      font-weight: 500;
+    }
+
+    .intro h2 {
+      margin: 12px 0;
+      font-size: clamp(27px, 5vw, 42px);
+      font-weight: 700;
+    }
+
+    .intro h2 span {
+      color: var(--purple);
+      text-shadow: 0 0 20px #b45cff55;
+    }
+
+    .intro p {
+      max-width: 610px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    /* การ์ดแนะนำ */
+    .family-card {
+      position: relative;
+      max-width: 670px;
+      margin: 0 auto;
+      padding: 30px 25px;
+      text-align: center;
+      border: 1px solid #b45cff45;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #17112cdd, #10182add);
+      box-shadow: 0 0 35px #8d42ff12;
+    }
+
+    .family-card h3 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      font-weight: 600;
+    }
+
+    .family-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .join-area {
+      padding: 45px 0 75px;
+      text-align: center;
+    }
+
+    .join-area h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .join-area p {
+      margin: 0 0 25px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .join-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 56px;
+      padding: 15px 30px;
+      border-radius: 14px;
+      color: #100b20;
+      background: linear-gradient(100deg, #d09aff, #42e8ff);
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 0 25px #a855f745;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .join-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 38px #42e8ff55;
+    }
+
+    .join-button:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 5px;
+    }
+
+    .join-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .note {
+      margin-top: 16px;
+      color: #77758f;
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 24px 5%;
+      border-top: 1px solid #ffffff12;
+      color: #85829f;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer span {
+      color: #c89bff;
+    }
+
+    @media (max-width: 500px) {
+      .navbar {
+        min-height: 66px;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .nav-label {
+        font-size: 10px;
+        padding: 7px 10px;
+      }
+
+      .banner {
+        min-height: 245px;
+      }
+
+      .banner-content {
+        padding: 42px 0;
+      }
+
+      .banner h1 {
+        letter-spacing: 1px;
+      }
+
+      .banner-tagline {
+        letter-spacing: 1px;
+      }
+
+      .intro {
+        padding: 48px 0 35px;
+      }
+
+      .intro p {
+        font-size: 14px;
+      }
+
+      .family-card {
+        padding: 25px 18px;
+      }
+
+      .join-button {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a class="brand" href="#">
+      FAMILY <span>FOREVER</span>
+    </a>
+
+    <div class="nav-label">OUR FAMILY COMMUNITY</div>
+  </header>
+
+  <!-- แบนเนอร์หลักด้านบน -->
+  <section class="banner">
+    <div class="banner-content">
+      <div class="banner-icon" aria-hidden="true">♡</div>
+
+      <h1>FAMILY FOREVER</h1>
+
+      <p class="banner-tagline">
+        ONE FAMILY · FOREVER TOGETHER
+      </p>
+
+      <div class="banner-line"></div>
+    </div>
+  </section>
+
+  <main>
+    <section class="intro">
+      <div class="eyebrow">WELCOME HOME</div>
+
+      <h2>
+        ยินดีต้อนรับสู่ <span>ครอบครัวของเรา</span>
+      </h2>
+
+      <p>
+        FAMILY FOREVER ไม่ใช่แค่เซิร์ฟเวอร์ Discord
+        แต่เป็นพื้นที่ที่ทุกคนเข้ามาทำความรู้จัก พูดคุย
+        แบ่งปันเรื่องราว และสร้างความทรงจำดี ๆ ร่วมกันได้
+      </p>
+    </section>
+
+    <section class="family-card">
+      <h3>♡ ครอบครัวที่มีพื้นที่ให้ทุกคน ♡</h3>
+
+      <p>
+        ไม่จำเป็นต้องรู้จักกันมาก่อน<br>
+        แค่เปิดใจเข้ามาทักทาย ก็อาจได้พบเพื่อนใหม่
+        ที่กลายเป็นส่วนหนึ่งของครอบครัวเรา
+      </p>
+    </section>
+
+    <section class="join-area">
+      <h3>พร้อมเข้ามาเป็นครอบครัวเดียวกันหรือยัง?</h3>
+
+      <p>
+        มาร่วมเป็นส่วนหนึ่งของ FAMILY FOREVER กันเลย!
+      </p>
+
+      <!-- แก้ลิงก์ด้านล่างเป็นลิงก์เชิญจริง -->
+      <a
+        class="join-button"
+        href="https://discord.gg/YOUR_INVITE_CODE"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19.7 5.3A18.5 18.5 0 0 0 15.1 4l-.6 1.2a17 17 0 0 0-5 0L8.9 4a18.5 18.5 0 0 0-4.6 1.3C1.4 9.6.6 13.8 1 18a18.7 18.7 0 0 0 5.7 2.9l1.2-2a12 12 0 0 1-1.9-.9l.5-.4c3.7 1.7 7.7 1.7 11.4 0l.5.4a12 12 0 0 1-1.9.9l1.2 2a18.7 18.7 0 0 0 5.7-2.9c.5-4.9-.8-9.1-3.7-12.7ZM8.8 14.7c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.4 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/>
+        </svg>
+
+        เข้าร่วมครอบครัว
+      </a>
+
+      <div class="note">
+        FAMILY FOREVER · A PLACE TO BELONG
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> FAMILY FOREVER · Made with ♡
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
